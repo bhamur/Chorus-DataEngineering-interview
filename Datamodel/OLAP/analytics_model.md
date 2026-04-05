@@ -1,4 +1,4 @@
-Below are the analytical questions that are needed to answer using the model
+Below are the analytical questions that are needed to answer using the model. 
 
 1. How many task occurances are completed on a daily basis?
 2. How many tasks occurances are completed on a weekly basis?

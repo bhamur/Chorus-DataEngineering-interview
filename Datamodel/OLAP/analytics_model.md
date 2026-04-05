@@ -11,14 +11,21 @@ I want to design a star schema with below dimension tables. When the task is not
 
 dim_date
 date_date_id
-date
-
+fulldate
+Calendar_year
+Quarter
+Month_number
+month_name
+Day_of_week
+Day_of_month
+day_of_year
 
 
 dim_time
 dim_time_id
-
-
+Hour
+Minue
+Second
 
 
 dim_user

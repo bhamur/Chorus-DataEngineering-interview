@@ -29,6 +29,7 @@ Task:
 Task_id (PK)
 Task_description
 Recurrance_time
+Max_occurance
 
 Task_Occurance:
 task_occurance_id(PK)

@@ -1,42 +1,19 @@
 # Chorus-DataEngineering-interview
 
-Q1. Data Model: 
 
-I have used chatgpt and below are the prompts i provided to come up with a diagram. 
+## **Repository Structure**
 
-Below are the Business rules assumed 
+This repository contains the following main folders:
 
-1. An User can be assigned multiple task Occurances. 
-2. One task occurance can be assigned to only one user. 
-3. One task can have multiple task occurances.
+### **1. DataModel**
+This folder contains two subfolders:
 
-Below are the Entities identified:
+- **OLTP**  
+  Contains the diagram and the prompt used to generate the transactional data model.
 
-1. User
-2. task
-3. Task Occurance 
+- **OLAP**  
+  Contains the diagram and the prompt used to generate the analytical processing data model.
 
-The data model is desgined for transaction system. The list of attributes for each table is as below
-
-User:
-User_id (PK)
-Firstname
-LastName
-DOB
-email_id
-
-Task:
-Task_id (PK)
-Task_description
-Recurrance_time
-Max_occurance
-
-Task_Occurance:
-task_occurance_id(PK)
-user_assignment_id (FK)
-task_id (FK)
-task_occurance_status
-Task_occurance_starttime
-task_occurance_completion_time
-
+### **2. SQL Queries**
+This folder contains the SQL queries created as part of the take-home assessment.
 

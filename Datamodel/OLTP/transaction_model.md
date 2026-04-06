@@ -36,3 +36,4 @@ task_id (FK)
 task_occurance_status
 Task_occurance_starttime
 task_occurance_completion_time
+task_occurance_due_date

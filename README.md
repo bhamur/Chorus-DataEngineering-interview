@@ -17,3 +17,5 @@ This folder contains two subfolders:
 ### **2. SQL Queries**
 This folder contains the SQL queries created as part of the take-home assessment.
 
+### **3. Architecture Diagram**
+This folder contains architecture diagram for next steps

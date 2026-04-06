@@ -60,3 +60,4 @@ I want to design a star schema with below dimension tables. When the task is not
 - dim_end_time_id (FK, nullable)
 - is_completed
 - task_duration
+- dim_task_due_date_id

@@ -1,5 +1,3 @@
-# Chorus-DataEngineering-interview
-
 # Chorus Data Engineering Interview
 
 This repository contains my submission for the Chorus Data Engineering take-home assignment.

@@ -28,7 +28,7 @@ This model is structured as a star schema to support business reporting and aggr
 ### `SQLQueries`
 Contains SQL queries written to answer the required questions.
 
-### `Architechture_Diagram`
+### `Architecture_Diagram`
 Contains architecture diagram files included as part of the submission for next steps.
 
 ## Why Both Models

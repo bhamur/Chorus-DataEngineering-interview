@@ -56,11 +56,14 @@ The trade-offs and design assumptions for each model are documented in the corre
 - `Datamodel/OLTP`
 - `Datamodel/OLAP`
 
+## How to review this submission
+
+- start with Datamodel/OLTP
+- then Datamodel/OLAP
+- then SQLQueries/answers.sql
+
 ## AI Usage Disclosure
 
 AI was used to help brainstorm diagram structure and presentation.
 
 The final schema design, attribute selection, and SQL solutions were reviewed and adjusted by me.
-
-### **3. Architecture Diagram**
-This folder contains architecture diagram for next steps

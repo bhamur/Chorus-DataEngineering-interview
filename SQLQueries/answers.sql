@@ -2,7 +2,7 @@
 Write a query to return all patients who are active.*/
 
 select * from public."Patient"
-where active is True
+where active is true
 
 
 /*Find encounters for a specific patient
@@ -29,13 +29,10 @@ WITH params AS (
   SELECT
     '8f562c5f-9dcd-4a4e-b1e1-1417544539d3'::uuid AS patient_id
 )
-select pat.id, obs.type as observation_type, value, unit, recorded_at
+select obs.patient_id,obs.type as observation_type, value, unit, recorded_at
 from 
-public."Patient" pat inner join
-public."Observation" obs
-on pat.id = obs.patient_id
-inner join params
-on pat.id = params.patient_id
+public."Observation" obs inner join params
+on obs.patient_id = params.patient_id
 
 /*Intermediate Level (4-7)*/
 
@@ -109,7 +106,7 @@ from patient_cnt,enc_cnt
 /*Identify patients who have never had an encounter but have a medication request
 Write a query to find patients who have a record in the MedicationRequest table but no associated encounters in the Encounter table.*/
 
-select mr.patient_id
+select distinct mr.patient_id
 from public."MedicationRequest" mr 
 left join public."Encounter" Enc 
 on Enc.patient_id = mr.patient_id 

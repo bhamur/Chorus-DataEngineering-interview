@@ -37,3 +37,56 @@ on pat.id = obs.patient_id
 inner join params
 on pat.id = params.patient_id
 
+/*Intermediate Level (4-7)*/
+
+/*Find the most recent encounter for each patient
+Retrieve each patient’s most recent encounter (based on encounter_date). Return the patient_id, encounter_date, and status.*/
+
+With latest_encounter AS
+(select 
+Enc.*,
+ROW_NUMBER() OVER (PARTITION BY patient_id ORDER BY encounter_date desc) as rn
+from public."Encounter" enc)
+select latest_encounter.patient_id, latest_encounter.status, latest_encounter.encounter_date
+from latest_encounter
+where rn =1 
+
+/*
+Testing:
+select * from public."Encounter"
+where patient_id = '8f562c5f-9dcd-4a4e-b1e1-1417544539d3'
+max encounter : 2026-03-24 22:28:46.896091, status:planned
+*/
+
+/*Find patients who have had encounters with more than one practitioner
+Write a query to return a list of patient IDs who have had encounters with more than one distinct practitioner.*/
+
+select patient_id from public."Encounter"
+group by patient_id
+having count(distinct practitioner_id) > 1;
+
+
+/*Find the top 3 most prescribed medications
+Write a query to find the three most commonly prescribed medications from the MedicationRequest table, sorted by the number of prescriptions.*/
+
+select medication_name, 
+count(id) as no_medicationrequests 
+from public."MedicationRequest"
+group by medication_name
+order by no_medicationrequests desc limit 3
+
+/*Get practitioners who have never prescribed any medication
+Write a query to find all practitioners who do not appear in the MedicationRequest table as a prescribing practitioner.*/
+
+select prct.id, prct.name from
+public."Practitioner" prct
+left join public."MedicationRequest" mr 
+on prct.id = mr.practitioner_id 
+where mr.id is null
+
+/*
+Testing:
+There are 5 practitioners and select distinct practitioner_id from public."MedicationRequest" returns all 5.
+
+*/
+

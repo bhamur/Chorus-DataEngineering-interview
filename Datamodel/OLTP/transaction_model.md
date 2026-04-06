@@ -2,8 +2,6 @@
 
 I used ChatGPT to help come up with the data model diagram.
 
-## Prompts Used
-
 Below are the business rules I provided:
 
 - A user can be assigned multiple task occurrences.

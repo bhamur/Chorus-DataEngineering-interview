@@ -90,3 +90,30 @@ There are 5 practitioners and select distinct practitioner_id from public."Medic
 
 */
 
+/*Find the average number of encounters per patient
+Calculate the average number of encounters per patient, rounded to two decimal places.*/
+
+WITH patient_cnt as 
+(select count(id) as patient_cnt
+from public."Patient")
+, enc_cnt as
+(
+select count(id) as enc_cnt
+from public."Encounter"
+)
+select 
+round(enc_cnt.enc_cnt::numeric/patient_cnt.patient_cnt,2)
+from patient_cnt,enc_cnt
+
+
+/*Identify patients who have never had an encounter but have a medication request
+Write a query to find patients who have a record in the MedicationRequest table but no associated encounters in the Encounter table.*/
+
+select mr.patient_id
+from public."MedicationRequest" mr 
+left join public."Encounter" Enc 
+on Enc.patient_id = mr.patient_id 
+where Enc.id is null
+
+/*Determine patient retention by cohort
+Write a query to count how many patients had their first encounter in each month (YYYY-MM format) and still had at least one encounter in the following six months.*/

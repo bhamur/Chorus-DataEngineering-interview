@@ -1,39 +1,45 @@
-Q1. Data Model: 
+# Q1. Data Model
 
-I have used chatgpt and below are the prompts i provided to come up with a diagram. 
+I used ChatGPT to help come up with the data model diagram.
 
-Below are the Business rules assumed 
+## Prompts Used
 
-1. An User can be assigned multiple task Occurances. 
-2. One task occurance can be assigned to only one user. 
-3. One task can have multiple task occurances.
+Below are the business rules I provided:
 
-Below are the Entities identified:
+- A user can be assigned multiple task occurrences.
+- One task occurrence can be assigned to only one user.
+- One task can have multiple task occurrences.
 
-1. User
-2. task
-3. Task Occurance 
+## Entities Identified
 
-The data model is desgined for transaction system. The list of attributes for each table is as below
+- User
+- Task
+- Task Occurrence
 
-User:
-User_id (PK)
-Firstname
-LastName
-DOB
-email_id
+## Data Model Type
 
-Task:
-Task_id (PK)
-Task_description
-Recurrance_time
-Max_occurance
+This data model is designed for a transactional system.
 
-Task_Occurance:
-task_occurance_id(PK)
-user_assignment_id (FK)
-task_id (FK)
-task_occurance_status
-Task_occurance_starttime
-task_occurance_completion_time
-task_occurance_due_date
+## Table Definitions
+
+### User
+- `user_id` (PK)
+- `first_name`
+- `last_name`
+- `dob`
+- `email_id`
+
+### Task
+- `task_id` (PK)
+- `task_description`
+- `recurrence_time`
+- `max_occurrence`
+
+### Task_Occurrence
+- `task_occurrence_id` (PK)
+- `user_assignment_id` (FK)
+- `task_id` (FK)
+- `task_occurrence_status`
+- `task_occurrence_start_time`
+- `task_occurrence_completion_time`
+- `task_occurrence_due_date`

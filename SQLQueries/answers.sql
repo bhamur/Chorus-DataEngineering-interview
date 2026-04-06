@@ -117,3 +117,26 @@ where Enc.id is null
 
 /*Determine patient retention by cohort
 Write a query to count how many patients had their first encounter in each month (YYYY-MM format) and still had at least one encounter in the following six months.*/
+WITH first_encounter AS (
+    SELECT
+        patient_id,
+        MIN(encounter_date) AS first_encounter_date
+    FROM public."Encounter"
+    GROUP BY patient_id
+),
+encounter_sixmonths AS (
+    SELECT DISTINCT
+        f.patient_id,
+        f.first_encounter_date
+    FROM first_encounter f
+    JOIN public."Encounter" e
+      ON e.patient_id = f.patient_id
+     AND e.encounter_date > f.first_encounter_date
+     AND e.encounter_date <= f.first_encounter_date + INTERVAL '6 months'
+)
+SELECT
+    TO_CHAR(first_encounter_date, 'YYYY-MM') AS first_encounter_month,
+    COUNT(patient_id) AS patient_count
+FROM encounter_sixmonths
+GROUP BY TO_CHAR(first_encounter_date, 'YYYY-MM')
+ORDER BY first_encounter_month;

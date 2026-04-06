@@ -47,29 +47,29 @@
   <text x="110" y="760" class="attr">user_dob</text>
   <text x="110" y="790" class="attr">user_email_id</text>
 
-  <rect x="1110" y="520" width="300" height="230" class="box"/>
+  <rect x="1110" y="520" width="300" height="190" class="box"/>
   <rect x="1110" y="520" width="300" height="46" class="header"/>
   <text x="1260" y="549" text-anchor="middle" class="entity-title">DIM_TASK</text>
   <text x="1130" y="595" class="attr">PK  dim_task_id</text>
   <text x="1130" y="625" class="attr">task_id</text>
   <text x="1130" y="655" class="attr">task_description</text>
   <text x="1130" y="685" class="attr">task_recurrence</text>
-  <text x="1130" y="715" class="attr">task_allocated_duration</text>
 
-  <rect x="500" y="310" width="500" height="320" class="box"/>
-  <rect x="500" y="310" width="500" height="46" class="fact-header"/>
-  <text x="750" y="339" text-anchor="middle" class="entity-title">FCT_TASK_OCCURRENCE</text>
-  <text x="520" y="385" class="attr">PK  fct_task_occurrence_key</text>
-  <text x="520" y="415" class="attr">FK  dim_user_id</text>
-  <text x="520" y="445" class="attr">FK  dim_task_id</text>
-  <text x="520" y="475" class="attr">FK  dim_start_date_id</text>
-  <text x="520" y="505" class="attr">FK  dim_start_time_id</text>
-  <text x="520" y="535" class="attr">FK  dim_end_date_id (nullable)</text>
-  <text x="520" y="565" class="attr">FK  dim_end_time_id (nullable)</text>
-  <text x="520" y="595" class="attr">is_completed</text>
-  <text x="520" y="625" class="attr">task_duration</text>
+  <rect x="500" y="290" width="500" height="360" class="box"/>
+  <rect x="500" y="290" width="500" height="46" class="fact-header"/>
+  <text x="750" y="319" text-anchor="middle" class="entity-title">FCT_TASK_OCCURRENCE</text>
+  <text x="520" y="365" class="attr">PK  fct_task_occurrence_key</text>
+  <text x="520" y="395" class="attr">FK  dim_user_id</text>
+  <text x="520" y="425" class="attr">FK  dim_task_id</text>
+  <text x="520" y="455" class="attr">FK  dim_start_date_id</text>
+  <text x="520" y="485" class="attr">FK  dim_start_time_id</text>
+  <text x="520" y="515" class="attr">FK  dim_due_date_id</text>
+  <text x="520" y="545" class="attr">FK  dim_end_date_id (nullable)</text>
+  <text x="520" y="575" class="attr">FK  dim_end_time_id (nullable)</text>
+  <text x="520" y="605" class="attr">is_completed</text>
+  <text x="520" y="635" class="attr">task_duration</text>
 
-  <line x1="390" y1="280" x2="500" y2="420" class="line"/>
+  <line x1="390" y1="280" x2="500" y2="430" class="line"/>
   <text x="418" y="335" class="label">date dimensions</text>
 
   <line x1="1110" y1="220" x2="1000" y2="455" class="line"/>
@@ -78,10 +78,10 @@
   <line x1="390" y1="690" x2="500" y2="530" class="line"/>
   <text x="405" y="610" class="label">user</text>
 
-  <line x1="1110" y1="635" x2="1000" y2="505" class="line"/>
-  <text x="1018" y="585" class="label">task</text>
+  <line x1="1110" y1="615" x2="1000" y2="495" class="line"/>
+  <text x="1018" y="565" class="label">task</text>
 
   <text x="750" y="890" text-anchor="middle" class="small">
-    Note: dim_end_date_id and dim_end_time_id are NULL when a task occurrence is not completed.
+    Note: dim_due_date_id stores task occurrence due date. dim_end_date_id and dim_end_time_id are NULL when a task occurrence is not completed.
   </text>
 </svg>

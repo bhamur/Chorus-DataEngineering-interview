@@ -44,7 +44,7 @@ I want to design a star schema with below dimension tables. When the task is not
 - task_id
 - task_description
 - task_recurrence
-- task_allocated_duration
+- task_duedate
 
 ---
 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1500" height="950" viewBox="0 0 1500 950" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 26px Arial, sans-serif; fill: #222; }
+    .subtitle { font: 15px Arial, sans-serif; fill: #444; }
+    .entity-title { font: bold 18px Arial, sans-serif; fill: #fff; }
+    .attr { font: 15px Arial, sans-serif; fill: #222; }
+    .small { font: 14px Arial, sans-serif; fill: #333; }
+    .box { fill: #f9fbff; stroke: #2b4c7e; stroke-width: 2; rx: 12; ry: 12; }
+    .header { fill: #2b4c7e; }
+    .fact-header { fill: #7a2b7e; }
+    .line { stroke: #444; stroke-width: 2.5; }
+    .label { font: italic 14px Arial, sans-serif; fill: #444; }
+  </style>
+
+  <text x="750" y="42" text-anchor="middle" class="title">Task Management OLAP Star Schema</text>
+  <text x="750" y="68" text-anchor="middle" class="subtitle">Each fact row represents one task occurrence</text>
+
+  <rect x="90" y="120" width="300" height="350" class="box"/>
+  <rect x="90" y="120" width="300" height="46" class="header"/>
+  <text x="240" y="149" text-anchor="middle" class="entity-title">DIM_DATE</text>
+  <text x="110" y="195" class="attr">PK  dim_date_id</text>
+  <text x="110" y="225" class="attr">full_date</text>
+  <text x="110" y="255" class="attr">calendar_year</text>
+  <text x="110" y="285" class="attr">quarter</text>
+  <text x="110" y="315" class="attr">month_number</text>
+  <text x="110" y="345" class="attr">month_name</text>
+  <text x="110" y="375" class="attr">week_number</text>
+  <text x="110" y="405" class="attr">day_of_week</text>
+  <text x="110" y="435" class="attr">day_of_month</text>
+
+  <rect x="1110" y="120" width="280" height="200" class="box"/>
+  <rect x="1110" y="120" width="280" height="46" class="header"/>
+  <text x="1250" y="149" text-anchor="middle" class="entity-title">DIM_TIME</text>
+  <text x="1130" y="195" class="attr">PK  dim_time_id</text>
+  <text x="1130" y="225" class="attr">hour</text>
+  <text x="1130" y="255" class="attr">minute</text>
+  <text x="1130" y="285" class="attr">second</text>
+
+  <rect x="90" y="565" width="300" height="250" class="box"/>
+  <rect x="90" y="565" width="300" height="46" class="header"/>
+  <text x="240" y="594" text-anchor="middle" class="entity-title">DIM_USER</text>
+  <text x="110" y="640" class="attr">PK  dim_user_id</text>
+  <text x="110" y="670" class="attr">user_id</text>
+  <text x="110" y="700" class="attr">user_first_name</text>
+  <text x="110" y="730" class="attr">user_last_name</text>
+  <text x="110" y="760" class="attr">user_dob</text>
+  <text x="110" y="790" class="attr">user_email_id</text>
+
+  <rect x="1110" y="520" width="300" height="230" class="box"/>
+  <rect x="1110" y="520" width="300" height="46" class="header"/>
+  <text x="1260" y="549" text-anchor="middle" class="entity-title">DIM_TASK</text>
+  <text x="1130" y="595" class="attr">PK  dim_task_id</text>
+  <text x="1130" y="625" class="attr">task_id</text>
+  <text x="1130" y="655" class="attr">task_description</text>
+  <text x="1130" y="685" class="attr">task_recurrence</text>
+  <text x="1130" y="715" class="attr">task_allocated_duration</text>
+
+  <rect x="500" y="310" width="500" height="320" class="box"/>
+  <rect x="500" y="310" width="500" height="46" class="fact-header"/>
+  <text x="750" y="339" text-anchor="middle" class="entity-title">FCT_TASK_OCCURRENCE</text>
+  <text x="520" y="385" class="attr">PK  fct_task_occurrence_key</text>
+  <text x="520" y="415" class="attr">FK  dim_user_id</text>
+  <text x="520" y="445" class="attr">FK  dim_task_id</text>
+  <text x="520" y="475" class="attr">FK  dim_start_date_id</text>
+  <text x="520" y="505" class="attr">FK  dim_start_time_id</text>
+  <text x="520" y="535" class="attr">FK  dim_end_date_id (nullable)</text>
+  <text x="520" y="565" class="attr">FK  dim_end_time_id (nullable)</text>
+  <text x="520" y="595" class="attr">is_completed</text>
+  <text x="520" y="625" class="attr">task_duration</text>
+
+  <line x1="390" y1="280" x2="500" y2="420" class="line"/>
+  <text x="418" y="335" class="label">date dimensions</text>
+
+  <line x1="1110" y1="220" x2="1000" y2="455" class="line"/>
+  <text x="1012" y="322" class="label">time dimensions</text>
+
+  <line x1="390" y1="690" x2="500" y2="530" class="line"/>
+  <text x="405" y="610" class="label">user</text>
+
+  <line x1="1110" y1="635" x2="1000" y2="505" class="line"/>
+  <text x="1018" y="585" class="label">task</text>
+
+  <text x="750" y="890" text-anchor="middle" class="small">
+    Note: dim_end_date_id and dim_end_time_id are NULL when a task occurrence is not completed.
+  </text>
+</svg>

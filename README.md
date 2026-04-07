@@ -18,7 +18,7 @@ I chose a **star schema** for the analytical model because it is well suited for
 For the transactional model, primary keys would be indexed by default.  
 In addition, foreign key columns and frequently filtered columns such as task_id, user_assignment_id, task_occurrence_status, and task_occurrence_due_date would be candidates for indexing based on application query patterns.
 
-For the analytical model, indexes on fact table foreign keys and date-related keys can help reporting queries, though the exact strategy would depend on the warehouse technology being used.
+For the analytical model, indexes on fact table foreign keys and date-related keys can help reporting queries.
 
 ## Repository Structure
 
